@@ -29,4 +29,10 @@ router.get("/media/key_b/:key_b", async (request, env) => {
   return await sql`SELECT * FROM media WHERE key_b = ${request.params.key_b}`;
 });
 
+router.get("/media/post/:postId", async (request, env) => {
+  const sql = postgres(env.DB_URL);
+
+  return await sql`SELECT * FROM media WHERE post_id = ${request.params.postId}`;
+});
+
 export default { ...router };
